@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paws &amp; Care — Professional Dog Sitting by Tobias Babej</title>
+<style>
+  :root {
+    --primary: #2d6a4f;
+    --primary-light: #40916c;
+    --primary-dark: #1b4332;
+    --accent: #d4a373;
+    --accent-light: #e9c46a;
+    --bg: #fefae0;
+    --bg-card: #ffffff;
+    --text: #1b1b1b;
+    --text-light: #555;
+    --text-muted: #888;
+    --border: #ddd;
+    --shadow: 0 4px 24px rgba(0,0,0,0.08);
+    --shadow-hover: 0 8px 32px rgba(0,0,0,0.14);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --transition: 0.25s ease;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .nav-logo {
+    font-size: 1.4rem; font-weight: 700; color: var(--primary-dark);
+    text-decoration: none; display: flex; align-items: center; gap: .5rem;
+  }
+  .nav-logo span { font-size: 1.6rem; }
+  .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none; color: var(--text); font-weight: 500;
+    padding: .4rem 0; border-bottom: 2px solid transparent;
+    transition: var(--transition);
+  }
+  .nav-links a:hover { color: var(--primary); border-color: var(--primary); }
+  .hamburger {
+    display: none; background: none; border: none; cursor: pointer;
+    flex-direction: column; gap: 5px; padding: 4px;
+  }
+  .hamburger span {
+    display: block; width: 24px; height: 2px; background: var(--text);
+    transition: var(--transition);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 6rem 2rem 4rem;
+    background: linear-gradient(170deg, #d8f3dc 0%, #fefae0 50%, #fefae0 100%);
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; top: -100px; right: -100px;
+    width: 500px; height: 500px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(45,106,79,0.08) 0%, transparent 70%);
+  }
+  .hero-content { max-width: 700px; position: relative; }
+  .hero-icon { font-size: 4rem; margin-bottom: 1rem; }
+  .hero h1 { font-size: 3.2rem; font-weight: 800; color: var(--primary-dark); margin-bottom: .5rem; }
+  .hero .tagline {
+    font-size: 1.25rem; color: var(--text-light); margin-bottom: 2rem;
+    font-weight: 400;
+  }
+  .hero-cta {
+    display: inline-block; background: var(--primary); color: #fff;
+    padding: .9rem 2.4rem; border-radius: 50px; text-decoration: none;
+    font-weight: 700; font-size: 1.1rem; transition: var(--transition);
+    box-shadow: 0 4px 16px rgba(45,106,79,0.25);
+  }
+  .hero-cta:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(45,106,79,0.35); }
+
+  /* ── SECTIONS ── */
+  section { padding: 5rem 2rem; }
+  .section-title {
+    text-align: center; font-size: 2.2rem; font-weight: 700;
+    color: var(--primary-dark); margin-bottom: .5rem;
+  }
+  .section-subtitle {
+    text-align: center; color: var(--text-light); margin-bottom: 3rem;
+    font-size: 1.05rem; max-width: 600px; margin-left: auto; margin-right: auto;
+  }
+
+  /* ── ABOUT ── */
+  #about { background: #fff; }
+  .about-grid {
+    max-width: 1000px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;
+  }
+  .about-photo {
+    width: 100%; aspect-ratio: 1; border-radius: var(--radius);
+    background: linear-gradient(135deg, var(--primary-light), var(--accent));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 8rem; color: rgba(255,255,255,0.7);
+  }
+  .about-text h3 { font-size: 1.5rem; color: var(--primary-dark); margin-bottom: .75rem; }
+  .about-text p { color: var(--text-light); margin-bottom: 1rem; }
+  .about-stats {
+    display: flex; gap: 2rem; margin-top: 1.5rem;
+  }
+  .about-stat { text-align: center; }
+  .about-stat .num { font-size: 1.8rem; font-weight: 800; color: var(--primary); }
+  .about-stat .label { font-size: .85rem; color: var(--text-muted); }
+
+  /* ── SERVICES ── */
+  .services-grid {
+    max-width: 1000px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+  }
+  .service-card {
+    background: var(--bg-card); border-radius: var(--radius); padding: 2rem;
+    box-shadow: var(--shadow); transition: var(--transition); text-align: center;
+    border: 1px solid var(--border);
+  }
+  .service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+  .service-card .icon { font-size: 2.5rem; margin-bottom: 1rem; }
+  .service-card h3 { color: var(--primary-dark); margin-bottom: .5rem; }
+  .service-card p { color: var(--text-light); font-size: .95rem; margin-bottom: 1rem; }
+  .service-price { font-size: 1.4rem; font-weight: 700; color: var(--primary); }
+  .service-price span { font-size: .85rem; font-weight: 400; color: var(--text-muted); }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials-grid {
+    max-width: 1000px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+  }
+  .testimonial-card {
+    background: #fff; border-radius: var(--radius); padding: 1.5rem;
+    box-shadow: var(--shadow); border: 1px solid var(--border);
+  }
+  .testimonial-card .stars { color: var(--accent); font-size: 1.1rem; margin-bottom: .5rem; }
+  .testimonial-card p { color: var(--text-light); font-style: italic; font-size: .95rem; margin-bottom: 1rem; }
+  .testimonial-card .author { font-weight: 600; color: var(--primary-dark); font-size: .9rem; }
+
+  /* ── CONTACT ── */
+  #contact { background: #fff; }
+  .contact-info {
+    max-width: 600px; margin: 0 auto; text-align: center;
+  }
+  .contact-methods {
+    display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-top: 1rem;
+  }
+  .contact-method {
+    display: flex; align-items: center; gap: .5rem;
+    font-size: 1.05rem; color: var(--text-light);
+  }
+  .contact-method .ic { font-size: 1.4rem; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--primary-dark); color: rgba(255,255,255,0.7);
+    text-align: center; padding: 2rem;
+    font-size: .9rem;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .nav-links.open {
+      display: flex; flex-direction: column; position: absolute;
+      top: 64px; left: 0; right: 0; background: #fff;
+      padding: 1rem 2rem; border-bottom: 1px solid var(--border);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .hero h1 { font-size: 2.2rem; }
+    .about-grid { grid-template-columns: 1fr; text-align: center; }
+    .services-grid { grid-template-columns: 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .about-stats { justify-content: center; }
+    .contact-methods { flex-direction: column; align-items: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo"><span>&#128062;</span> Paws &amp; Care</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+
+    <li><a href="#testimonials">Testimonials</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <button class="hamburger" id="hamburger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-icon">&#128054;</div>
+    <h1>Paws &amp; Care</h1>
+    <p class="tagline">Professional dog sitting by Tobias Babej &mdash; where every tail wags with joy.</p>
+    <a href="#contact" class="hero-cta">Get in Touch</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-photo">&#128021;</div>
+    <div class="about-text">
+      <h3>Meet Tobias Babej</h3>
+      <p>With years of experience caring for dogs of all sizes and temperaments, I provide a safe, loving, and stimulating environment for your furry family members. Every dog in my care receives personalized attention, regular exercise, and plenty of affection.</p>
+      <p>Certified in pet first aid and fully insured, I treat every dog as if they were my own. Your peace of mind is my priority.</p>
+      <div class="about-stats">
+        <div class="about-stat">
+          <div class="num">500+</div>
+          <div class="label">Happy Dogs</div>
+        </div>
+        <div class="about-stat">
+          <div class="num">8+</div>
+          <div class="label">Years Exp.</div>
+        </div>
+        <div class="about-stat">
+          <div class="num">5.0</div>
+          <div class="label">Avg. Rating</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <h2 class="section-title">Services</h2>
+  <p class="section-subtitle">Tailored care packages to suit every pup's needs</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="icon">&#127969;</div>
+      <h3>Day Care</h3>
+      <p>Full-day supervision with walks, playtime, and socialization. Perfect for busy workdays.</p>
+      <div class="service-price">$35 <span>/ day</span></div>
+    </div>
+    <div class="service-card">
+      <div class="icon">&#127769;</div>
+      <h3>Overnight Stay</h3>
+      <p>Your dog sleeps over in a cozy, home environment with evening and morning routines.</p>
+      <div class="service-price">$55 <span>/ night</span></div>
+    </div>
+    <div class="service-card">
+      <div class="icon">&#128694;</div>
+      <h3>Dog Walking</h3>
+      <p>30 or 60-minute walks with GPS tracking and photo updates sent to your phone.</p>
+      <div class="service-price">$20 <span>/ walk</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <h2 class="section-title">What Pet Parents Say</h2>
+  <p class="section-subtitle">Don't just take our word for it</p>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p>"Tobias is incredible with our rescue Max. He sends photos throughout the day and Max is always exhausted and happy when we pick him up!"</p>
+      <div class="author">— Sarah K.</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p>"We've tried several sitters but none compare. Our anxious poodle Luna actually gets excited when she sees Tobias. Highly recommend!"</p>
+      <div class="author">— Michael R.</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p>"Professional, reliable, and genuinely loves dogs. Booking is easy and Tobias always accommodates our schedule. Five stars!"</p>
+      <div class="author">— Emily T.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2 class="section-title">Get in Touch</h2>
+  <p class="section-subtitle">Questions? I'd love to hear from you.</p>
+  <div class="contact-info">
+    <div class="contact-methods">
+      <div class="contact-method"><span class="ic">&#128231;</span> tobias@pawsandcare.com</div>
+      <div class="contact-method"><span class="ic">&#128222;</span> +1 (555) 987-6543</div>
+      <div class="contact-method"><span class="ic">&#128205;</span> San Francisco, CA</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  &copy; 2026 Paws &amp; Care by Tobias Babej. All rights reserved.
+</footer>
+
+<script>
+(function() {
+  // ── NAV ──
+  window.toggleNav = function() {
+    document.getElementById('navLinks').classList.toggle('open');
+  };
+
+  // Close mobile nav on link click
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => {
+      document.getElementById('navLinks').classList.remove('open');
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
