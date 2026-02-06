@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Paws &amp; Care — Professional Dog Sitting by Tobias Babej</title>
+<title>Paws&amp;Claws Sitting Service — Professional Dog Sitting by Tobias Babej</title>
 <style>
   :root {
-    --primary: #2d6a4f;
-    --primary-light: #40916c;
-    --primary-dark: #1b4332;
-    --accent: #d4a373;
-    --accent-light: #e9c46a;
-    --bg: #fefae0;
+    --primary: #0d9488;
+    --primary-light: #14b8a6;
+    --primary-dark: #115e59;
+    --accent: #3b82f6;
+    --accent-light: #60a5fa;
+    --bg: #f8fffe;
     --bg-card: #ffffff;
     --text: #1b1b1b;
     --text-light: #555;
@@ -49,7 +49,6 @@
     font-size: 1.4rem; font-weight: 700; color: var(--primary-dark);
     text-decoration: none; display: flex; align-items: center; gap: .5rem;
   }
-  .nav-logo span { font-size: 1.6rem; }
   .nav-links { display: flex; gap: 1.5rem; list-style: none; }
   .nav-links a {
     text-decoration: none; color: var(--text); font-weight: 500;
@@ -70,16 +69,32 @@
   .hero {
     min-height: 100vh; display: flex; align-items: center; justify-content: center;
     text-align: center; padding: 6rem 2rem 4rem;
-    background: linear-gradient(170deg, #d8f3dc 0%, #fefae0 50%, #fefae0 100%);
+    background: linear-gradient(170deg, #e0f7f5 0%, #eef6ff 50%, #f8fffe 100%);
     position: relative; overflow: hidden;
   }
   .hero::before {
-    content: ''; position: absolute; top: -100px; right: -100px;
-    width: 500px; height: 500px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(45,106,79,0.08) 0%, transparent 70%);
+    content: ''; position: absolute; top: -80px; right: -80px;
+    width: 400px; height: 400px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(13,148,136,0.1) 0%, transparent 70%);
+  }
+  .hero::after {
+    content: ''; position: absolute; bottom: -120px; left: -60px;
+    width: 350px; height: 350px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 70%);
   }
   .hero-content { max-width: 700px; position: relative; }
-  .hero-icon { font-size: 4rem; margin-bottom: 1rem; }
+  .hero-icon {
+    margin-bottom: 1rem; display: flex; align-items: center;
+    justify-content: center; gap: 8px;
+  }
+  .hero-icon .dot {
+    border-radius: 50%; display: inline-block;
+  }
+  .hero-icon .dot:nth-child(1) { width: 16px; height: 16px; background: var(--primary-light); }
+  .hero-icon .dot:nth-child(2) { width: 28px; height: 28px; background: var(--primary); }
+  .hero-icon .dot:nth-child(3) { width: 40px; height: 40px; background: var(--accent); }
+  .hero-icon .dot:nth-child(4) { width: 28px; height: 28px; background: var(--primary); }
+  .hero-icon .dot:nth-child(5) { width: 16px; height: 16px; background: var(--accent-light); }
   .hero h1 { font-size: 3.2rem; font-weight: 800; color: var(--primary-dark); margin-bottom: .5rem; }
   .hero .tagline {
     font-size: 1.25rem; color: var(--text-light); margin-bottom: 2rem;
@@ -89,9 +104,9 @@
     display: inline-block; background: var(--primary); color: #fff;
     padding: .9rem 2.4rem; border-radius: 50px; text-decoration: none;
     font-weight: 700; font-size: 1.1rem; transition: var(--transition);
-    box-shadow: 0 4px 16px rgba(45,106,79,0.25);
+    box-shadow: 0 4px 16px rgba(13,148,136,0.25);
   }
-  .hero-cta:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(45,106,79,0.35); }
+  .hero-cta:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(13,148,136,0.35); }
 
   /* ── SECTIONS ── */
   section { padding: 5rem 2rem; }
@@ -112,9 +127,28 @@
   }
   .about-photo {
     width: 100%; aspect-ratio: 1; border-radius: var(--radius);
-    background: linear-gradient(135deg, var(--primary-light), var(--accent));
+    background: linear-gradient(135deg, #e0f7f5, #eef6ff);
     display: flex; align-items: center; justify-content: center;
-    font-size: 8rem; color: rgba(255,255,255,0.7);
+    position: relative; overflow: hidden;
+  }
+  .about-photo .geo-circle {
+    position: absolute; border-radius: 50%;
+  }
+  .about-photo .geo-circle:nth-child(1) {
+    width: 60%; height: 60%; top: 10%; left: 5%;
+    background: rgba(13,148,136,0.15); border: 2px solid rgba(13,148,136,0.2);
+  }
+  .about-photo .geo-circle:nth-child(2) {
+    width: 45%; height: 45%; bottom: 10%; right: 5%;
+    background: rgba(59,130,246,0.12); border: 2px solid rgba(59,130,246,0.18);
+  }
+  .about-photo .geo-circle:nth-child(3) {
+    width: 30%; height: 30%; top: 35%; left: 35%;
+    background: rgba(20,184,166,0.18); border: 2px solid rgba(20,184,166,0.25);
+  }
+  .about-photo .geo-circle:nth-child(4) {
+    width: 20%; height: 20%; top: 15%; right: 15%;
+    background: rgba(96,165,250,0.15); border: 2px solid rgba(96,165,250,0.2);
   }
   .about-text h3 { font-size: 1.5rem; color: var(--primary-dark); margin-bottom: .75rem; }
   .about-text p { color: var(--text-light); margin-bottom: 1rem; }
@@ -136,7 +170,8 @@
     border: 1px solid var(--border);
   }
   .service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
-  .service-card .icon { font-size: 2.5rem; margin-bottom: 1rem; }
+  .service-card .icon { margin-bottom: 1rem; display: flex; justify-content: center; }
+  .service-card .icon svg { width: 48px; height: 48px; }
   .service-card h3 { color: var(--primary-dark); margin-bottom: .5rem; }
   .service-card p { color: var(--text-light); font-size: .95rem; margin-bottom: 1rem; }
   .service-price { font-size: 1.4rem; font-weight: 700; color: var(--primary); }
@@ -151,7 +186,7 @@
     background: #fff; border-radius: var(--radius); padding: 1.5rem;
     box-shadow: var(--shadow); border: 1px solid var(--border);
   }
-  .testimonial-card .stars { color: var(--accent); font-size: 1.1rem; margin-bottom: .5rem; }
+  .testimonial-card .stars { color: var(--accent-light); font-size: 1.1rem; margin-bottom: .5rem; }
   .testimonial-card p { color: var(--text-light); font-style: italic; font-size: .95rem; margin-bottom: 1rem; }
   .testimonial-card .author { font-weight: 600; color: var(--primary-dark); font-size: .9rem; }
 
@@ -167,7 +202,8 @@
     display: flex; align-items: center; gap: .5rem;
     font-size: 1.05rem; color: var(--text-light);
   }
-  .contact-method .ic { font-size: 1.4rem; }
+  .contact-method .ic { display: flex; align-items: center; }
+  .contact-method .ic svg { width: 22px; height: 22px; }
 
   /* ── FOOTER ── */
   footer {
@@ -199,7 +235,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo"><span>&#128062;</span> Paws &amp; Care</a>
+  <a href="#" class="nav-logo">Paws&amp;Claws Sitting Service</a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#about">About</a></li>
     <li><a href="#services">Services</a></li>
@@ -216,8 +252,8 @@
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-content">
-    <div class="hero-icon">&#128054;</div>
-    <h1>Paws &amp; Care</h1>
+    <div class="hero-icon"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+    <h1>Paws&amp;Claws Sitting Service</h1>
     <p class="tagline">Professional dog sitting by Tobias Babej &mdash; where every tail wags with joy.</p>
     <a href="#contact" class="hero-cta">Get in Touch</a>
   </div>
@@ -226,7 +262,7 @@
 <!-- ABOUT -->
 <section id="about">
   <div class="about-grid">
-    <div class="about-photo">&#128021;</div>
+    <div class="about-photo"><div class="geo-circle"></div><div class="geo-circle"></div><div class="geo-circle"></div><div class="geo-circle"></div></div>
     <div class="about-text">
       <h3>Meet Tobias Babej</h3>
       <p>With years of experience caring for dogs of all sizes and temperaments, I provide a safe, loving, and stimulating environment for your furry family members. Every dog in my care receives personalized attention, regular exercise, and plenty of affection.</p>
@@ -255,19 +291,19 @@
   <p class="section-subtitle">Tailored care packages to suit every pup's needs</p>
   <div class="services-grid">
     <div class="service-card">
-      <div class="icon">&#127969;</div>
+      <div class="icon"><svg viewBox="0 0 48 48" fill="none" stroke="#0d9488" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 24l18-14 18 14"/><rect x="10" y="24" width="28" height="18" rx="2"/><rect x="19" y="30" width="10" height="12"/></svg></div>
       <h3>Day Care</h3>
       <p>Full-day supervision with walks, playtime, and socialization. Perfect for busy workdays.</p>
       <div class="service-price">$35 <span>/ day</span></div>
     </div>
     <div class="service-card">
-      <div class="icon">&#127769;</div>
+      <div class="icon"><svg viewBox="0 0 48 48" fill="none" stroke="#0d9488" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M38 28A14 14 0 0 1 20 10a14 14 0 1 0 18 18z"/></svg></div>
       <h3>Overnight Stay</h3>
       <p>Your dog sleeps over in a cozy, home environment with evening and morning routines.</p>
       <div class="service-price">$55 <span>/ night</span></div>
     </div>
     <div class="service-card">
-      <div class="icon">&#128694;</div>
+      <div class="icon"><svg viewBox="0 0 48 48" fill="none" stroke="#0d9488" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 44l4-14-6-6 2-10"/><circle cx="24" cy="6" r="4"/><path d="M24 10v12l6 8-2 14"/><path d="M24 22l-10 2"/></svg></div>
       <h3>Dog Walking</h3>
       <p>30 or 60-minute walks with GPS tracking and photo updates sent to your phone.</p>
       <div class="service-price">$20 <span>/ walk</span></div>
@@ -304,16 +340,16 @@
   <p class="section-subtitle">Questions? I'd love to hear from you.</p>
   <div class="contact-info">
     <div class="contact-methods">
-      <div class="contact-method"><span class="ic">&#128231;</span> tobias@pawsandcare.com</div>
-      <div class="contact-method"><span class="ic">&#128222;</span> +1 (555) 987-6543</div>
-      <div class="contact-method"><span class="ic">&#128205;</span> San Francisco, CA</div>
+      <div class="contact-method"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg></span> tobias@pawsandcare.com</div>
+      <div class="contact-method"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.81.36 1.6.68 2.36a2 2 0 0 1-.45 2.11L8.09 9.44a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.76.32 1.55.55 2.36.68A2 2 0 0 1 22 16.92z"/></svg></span> +421 948 771 414</div>
+      <div class="contact-method"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span> Europe, Slovakia</div>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  &copy; 2026 Paws &amp; Care by Tobias Babej. All rights reserved.
+  &copy; 2026 Paws&amp;Claws Sitting Service by Tobias Babej. All rights reserved.
 </footer>
 
 <script>
